@@ -11,6 +11,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+// TODO: Test the view-model
 @HiltViewModel
 class TripViewModel @Inject constructor(
     private val tripsRepository: TripsRepository
