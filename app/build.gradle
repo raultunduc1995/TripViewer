@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -25,9 +28,13 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            buildConfigField("String", "URL", "\"https://autoliv.github.io/\"")
         }
         debug {
             applicationIdSuffix ".debug"
+
+            buildConfigField("String", "URL", "\"https://autoliv.github.io/\"")
         }
     }
     compileOptions {
@@ -57,6 +64,8 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.4.0'
+    // Integration with observables
+    implementation 'androidx.compose.runtime:runtime-livedata:1.0.1'
     implementation "androidx.compose.ui:ui:$compose_version"
     // Tooling support (Previews, etc.)
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
@@ -68,8 +77,16 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.3.1'
     // Integration with ViewModels
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
-    // Integration with observables
-    implementation 'androidx.compose.runtime:runtime-livedata:1.0.1'
+    // Navigation
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
+    // Retrofit - networking
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    // Hilt DI
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    // Image loading
+    implementation "io.coil-kt:coil-compose:1.3.2"
 
     testImplementation 'junit:junit:4.13.2'
 
