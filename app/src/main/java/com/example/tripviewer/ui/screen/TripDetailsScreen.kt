@@ -1,7 +1,6 @@
 package com.example.tripviewer.ui.screen
 
 import android.content.res.Configuration
-import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -14,17 +13,15 @@ import com.example.tripviewer.ui.component.TripAppBar
 import com.example.tripviewer.ui.theme.TripViewerTheme
 import com.example.tripviewer.ui.viewmodel.TripViewModel
 
+// TODO: Finish the UI Implementation
 @Composable
 fun TripDetailsScreen(
     navController: NavController,
     viewModel: TripViewModel,
     tripId: String?
 ) {
-    Log.d("TAG", "${tripId}")
     val trips by viewModel.tripsList.observeAsState(initial = emptyList())
-    Log.d("TAG", trips.toString())
     val trip = trips.firstOrNull { it.id == tripId }
-    Log.d("TAG", trip.toString())
 
     Column {
         TripAppBar(
