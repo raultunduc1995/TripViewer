@@ -4,11 +4,14 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.example.tripviewer.R
 import com.example.tripviewer.ui.component.TripAppBar
 import com.example.tripviewer.ui.theme.TripViewerTheme
 import com.example.tripviewer.ui.viewmodel.TripViewModel
@@ -20,6 +23,7 @@ fun TripDetailsScreen(
     viewModel: TripViewModel,
     tripId: String?
 ) {
+    val resources = LocalContext.current.resources
     val trips by viewModel.tripsList.observeAsState(initial = emptyList())
     val trip = trips.firstOrNull { it.id == tripId }
 
@@ -28,6 +32,8 @@ fun TripDetailsScreen(
             title = trip?.id ?: "",
             onBackPressed = { navController.popBackStack() }
         )
+        Text(text = trip?.location?.start?.city ?: "Unknown city")
+        Text(text = resources.getString(R.string.end_city, trip?.location?.end?.city ?: "Unknown city..."))
     }
 }
 

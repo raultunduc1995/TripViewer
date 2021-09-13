@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -27,10 +28,7 @@ class MainActivity : ComponentActivity() {
             TripViewerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    val navController = rememberNavController()
-                    val viewModel = viewModel<TripViewModel>()
-
-                    Container(navController, viewModel)
+                    Container()
                 }
             }
         }
@@ -38,15 +36,23 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Container(navController: NavHostController, viewModel: TripViewModel) {
-    NavHost(navController = navController, startDestination = "mainscreen") {
+fun Container() {
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "mainscreen", route = "MainRoute") {
         composable("mainscreen") {
+            val viewModel = hiltViewModel<TripViewModel>(
+                navController.getBackStackEntry("MainRoute")
+            )
             MainScreen(navController, viewModel)
         }
         composable(
             "tripdetailsscreen/{tripId}",
             arguments = listOf(navArgument("tripId") { type = NavType.StringType })
         ) { backstackEntry ->
+            val viewModel = hiltViewModel<TripViewModel>(
+                navController.getBackStackEntry("MainRoute")
+            )
             TripDetailsScreen(
                 navController,
                 viewModel,
