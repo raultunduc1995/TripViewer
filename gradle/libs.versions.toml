@@ -1,0 +1,58 @@
+[versions]
+gradleBuildScan = "3.12.3"
+androidPlugin = "7.4.1"
+kotlin = "1.7.10"
+androidxCore = "1.9.0"
+androidxAppcompat = "1.6.1"
+googleMaterial = "1.8.0"
+compose = "1.3.0"
+composeBom = "2022.10.00"
+composeCoil = "1.3.2"
+androidxComposeActivity = "1.6.1"
+androidxComposeViewmodelLifecycle = "2.5.1"
+androidxComposeNavigation = "2.5.3"
+hilt = "2.44"
+hiltNavigationCompose = "1.0.0-alpha03"
+retrofitVersion = "2.9.0"
+junitVersion = "4.13.2"
+androidxJunit = "1.1.5"
+
+[libraries]
+gradle-build-scan = { group = "com.gradle", name = "gradle-enterprise-gradle-plugin", version.ref = "gradleBuildScan" }
+androidx-core = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "googleMaterial" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+compose-material = { group = "androidx.compose.material", name = "material" }
+compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata" }
+compose-ui-toolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "composeCoil" }
+androidx-compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxComposeActivity" }
+androidx-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxComposeViewmodelLifecycle" }
+androidx-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxComposeNavigation" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+retrofit-lib = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+convertor-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
+junit = { group = "junit", name = "junit", version.ref = "junitVersion" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxJunit" }
+
+# Dependencies of the included build-logic
+android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidPlugin" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+hilt-gradlePlugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
+
+[bundles]
+hilt-with-navigation = ["hilt-android", "hilt-navigation-compose"]
+retrofit = ["retrofit-lib", "convertor-gson"]
+compose = [
+    "compose-material",
+    "compose-runtime-livedata",
+    "compose-ui-toolingPreview",
+    "compose-coil",
+    "androidx-compose-activity",
+    "androidx-compose-viewmodel",
+    "androidx-compose-navigation"
+]

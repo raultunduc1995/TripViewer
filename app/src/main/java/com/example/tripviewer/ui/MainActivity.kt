@@ -1,5 +1,6 @@
 package com.example.tripviewer.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -7,17 +8,15 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
-import com.example.tripviewer.ui.screen.MainScreen
-import com.example.tripviewer.ui.screen.TripDetailsScreen
-import com.example.tripviewer.ui.theme.TripViewerTheme
-import com.example.tripviewer.ui.viewmodel.TripViewModel
+import androidx.navigation.navArgument
+import com.example.featurestripsdetails.ui.screens.TripDetailsScreen
+import com.example.featurestripsdetails.ui.themes.TripViewerTheme
+import com.example.featurestripsdetails.ui.viewmodels.TripViewModel
+import com.example.tripviewer.ui.screens.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,6 +34,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@SuppressLint("UnrememberedGetBackStackEntry")
 @Composable
 fun Container() {
     val navController = rememberNavController()

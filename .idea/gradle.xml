@@ -4,6 +4,25 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/gradle/meta-plugins" name="meta-plugins">
+                <projects>
+                  <project path="$PROJECT_DIR$/gradle/meta-plugins" />
+                  <project path="$PROJECT_DIR$/gradle/meta-plugins/settings-plugins" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/gradle/build-logic" name="build-logic">
+                <projects>
+                  <project path="$PROJECT_DIR$/gradle/build-logic" />
+                  <project path="$PROJECT_DIR$/gradle/build-logic/android-plugins" />
+                  <project path="$PROJECT_DIR$/gradle/build-logic/root-plugins" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -12,9 +31,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/data-trips" />
+            <option value="$PROJECT_DIR$/feature-trips-details" />
+            <option value="$PROJECT_DIR$/gradle/build-logic" />
+            <option value="$PROJECT_DIR$/gradle/build-logic/android-plugins" />
+            <option value="$PROJECT_DIR$/gradle/build-logic/root-plugins" />
+            <option value="$PROJECT_DIR$/gradle/meta-plugins" />
+            <option value="$PROJECT_DIR$/gradle/meta-plugins/settings-plugins" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

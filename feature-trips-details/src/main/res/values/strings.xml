@@ -1,0 +1,4 @@
+<resources>
+    <string name="start_city">Start city: %1$s</string>
+    <string name="end_city">End city: %1$s</string>
+</resources>

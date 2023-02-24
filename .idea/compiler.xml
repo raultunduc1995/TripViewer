@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="11">
+      <module name="build-logic.main" target="11" />
+      <module name="build-logic.test" target="11" />
+      <module name="meta-plugins.meta-tasks-plugins.main" target="11" />
+      <module name="meta-plugins.meta-tasks-plugins.test" target="11" />
+      <module name="tasks-plugins.main" target="11" />
+      <module name="tasks-plugins.test" target="11" />
+      <module name="TripViewer.buildSrc" target="11" />
+      <module name="TripViewer.buildSrc.android-plugins" target="11" />
+      <module name="TripViewer.buildSrc.android-plugins.main" target="11" />
+      <module name="TripViewer.buildSrc.android-plugins.test" target="11" />
+      <module name="TripViewer.buildSrc.main" target="11" />
+      <module name="TripViewer.buildSrc.tasks-plugins" target="11" />
+      <module name="TripViewer.buildSrc.tasks-plugins.main" target="11" />
+      <module name="TripViewer.buildSrc.tasks-plugins.test" target="11" />
+      <module name="TripViewer.buildSrc.test" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

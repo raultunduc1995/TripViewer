@@ -4,6 +4,4 @@
     <string name="error_loading_trips">Could not fetch trips</string>
     <string name="start_time">Start: %1$s</string>
     <string name="end_time">End: %1$s</string>
-    <string name="start_city">Start city: %1$s</string>
-    <string name="end_city">End city: %1$s</string>
 </resources>
